@@ -15,46 +15,119 @@
   <div class=" container">
     <div class="row">
       <div class="col">
+
         <div class="jumbotron">
+          <h1>Consultar Média</h1>
           <form>
             <div class="form-group">
               <input type="text" class="form-control" id="media" placeholder="Digite Sua Nota">
-              <input type="text" class="form-control" id="media" placeholder="Digite outra Nota">
-              <input type="text" class="form-control" id="media" placeholder="Digite outra Nota">
+              <input type="text" class="form-control" id="media" placeholder="Digite Sua Nota">
+              <input type="text" class="form-control" id="media" placeholder="Digite Sua Nota">
             </div>
-            <button type="button" class="btn btn-green" onclick="media()">Sua Media</button>
+            <button type="button" class="btn btn-green" onclick="medi()">Sua Media</button>
           </form>
           <h1 id="suamedia">...</h1>
         </div>
       </div>
+      <div class="col">
+        <div class="jumbotron">
+          <h1>Tabuada</h1>
+          <form>
+          
+            <button type="button" class="btn btn-green" onclick="tabu()">Tabuada</button>
+          </form>
+       
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="jumbotron">
+          <h1>Verificação de Nadador</h1>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="Nadador" placeholder="Digite Seu Ano De Nacimento">
+              
+            </div>
+            <button type="button" class="btn btn-green" onclick="idade()">Verificar</button>
+          </form>
+          <h1 id="suaidade">...</h1>
+        </div>
+      </div>
     </div>
     <div class="row">
-        <div class="col"></div>
-        <div class="jumbotron">
-            <form>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="tabuada" placeholder="número dá tabuada desejado">
-                 
-                </div>
-                <button type="button" class="btn btn-green" onclick="tabuada()">Sua Media</button>
-              </form>
-        </div>
+      <div class="col">
 
-    </div>
+        <div class="jumbotron">
+          <h1>TOP 3</h1>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="nadar" placeholder="Seu Tempo De Prova">
+              
+            </div>
+            <button type="button" class="btn btn-green" onclick="medalha()">Sua Medalha È</button>
+          </form>
+          <h3>1 lugar chegando perto de  1.30 </h3>
+          <h3>2 lugarchegando perto de  1.50 </h3>
+          <h3>3 lugar cheggando perto de 2.10 </h3>
+          <h1 id="suamedalha">Seu Tempo</h1>
+         
+        </div>
+      </div>
+     
+    
     </div>
 
   </div>
   <script>
     function medi(){
-        var n =   document.getElementById("media").value;
-        var n2 =   document.getElementById("media").value;
-        var n3 =   document.getElementById("media").value;
-        var total = (n + n2 + n3)/3  ;
-        document.getElementById("suamedia").innerHTML = total ;
+        var n =  parseFloat(document.getElementById("media").value);
+        ///var n2 =   document.getElementById("media").value;
+        ///var n3 =   document.getElementById("media").value;
+        //var total = (n + n2 + n3)/3  ;
+       var m = document.getElementById("suamedia").innerHTML = (n + n + n)/3 ;
+       if(m >= 7)
+       alert('Aprovado');
+       else
+       alert('Reprovado')
     }
-    function tabuada(){
-  var ta = document.getElementById("tabuada")
+    function tabu(){
+     var numero;
+     numero = prompt("Digite um Número");
+ for(var i =1; i <= 10; i++)
+ {
+
+ document.write(numero + "x" + i + "=" + numero * i + "<br>") ;
+ 
+ }
     }
+    function idade(){
+ var i = document.getElementById('Nadador').value ;
+var idade = 2020;
+ var calcolodeidade =  document.getElementById('suaidade').innerHTML =  idade - i ;
+if(calcolodeidade >= 5 && calcolodeidade <= 7)
+alert("Nadador Infantil") ;
+else if(calcolodeidade >= 8 && calcolodeidade <= 13)
+alert("Nadador Juvenil") ;
+else if(calcolodeidade >= 8 && calcolodeidade <= 13)
+alert("Nadador Adolecente") ;
+else if(calcolodeidade >= 18)
+alert("Nadador Adulto") ;
+    }
+    function medalha(){
+     var x = parseFloat(document.getElementById('nadar').value)  ;
+     
+      var medalha = document.getElementById('suamedalha').innerHTML = x ;
+      
+      if(medalha >= 58 && medalha <= 1.30)
+      alert("Primeiro lugar") ;
+     else if(medalha > 1.30 && medalha <= 1.50)
+      alert("Segundo lugar") ;
+      else if(medalha > 1.50 && medalha <= 2.10)
+      alert("Terceiro lugar") ;
+      else
+      alert("Desculpe Infelizmente voçe não coonseguiu chegar ao TOP 3")
+    }
+
 
     
   </script>
